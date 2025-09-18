@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Website</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- General Styling --- */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Language-Specific Styling --- */
+        body.lang-hi {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c5b3b;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 400;
+            font-size: 1.1em;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-family: inherit; /* Use the body's font */
+        }
+
+        .language-switcher button:hover {
+            background-color: #e9e9e9;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #e8f5e9;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #2c5b3b;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            color: #555;
+        }
+
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo" data-i18n="logo_text">MyWebsite</div>
+                <ul>
+                    <li><a href="#" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#" data-i18n="nav_about">About</a></li>
+                    <li><a href="#" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button onclick="setLanguage('en')">English</button>
+                    <button onclick="setLanguage('hi')">हिन्दी</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 data-i18n="hero_title">Welcome to Our Website</h1>
+            <p data-i18n="hero_subtitle">A simple, beautiful, and multi-language demonstration page built just for you.</p>
+            <a href="#" class="cta-button" data-i18n="hero_button">Get Started</a>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_text">&copy; 2025 MyWebsite. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Store translations directly in the script for this example
+        const translations = {
+            en: {
+                logo_text: "MyWebsite",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                hero_title: "Welcome to Our Website",
+                hero_subtitle: "A simple, beautiful, and multi-language demonstration page built just for you.",
+                hero_button: "Get Started",
+                footer_text: "© 2025 MyWebsite. All Rights Reserved."
+            },
+            hi: {
+                logo_text: "मेरीवेबसाइट",
+                nav_home: "होम",
+                nav_about: "हमारे बारे में",
+                nav_services: "सेवाएं",
+                nav_contact: "संपर्क",
+                hero_title: "हमारी वेबसाइट पर आपका स्वागत है",
+                hero_subtitle: "आपके लिए बनाया गया एक सरल, सुंदर और बहु-भाषी प्रदर्शन पृष्ठ।",
+                hero_button: "शुरू करें",
+                footer_text: "© 2025 मेरीवेबसाइट। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        // Function to set the language
+        function setLanguage(lang) {
+            // Get the dictionary for the selected language
+            const langDict = translations[lang];
+
+            // Find all elements that need translation
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                element.textContent = langDict[key];
+            });
+
+            // Add language class to body for language-specific styling
+            document.body.className = `lang-${lang}`;
+            
+            // Save the user's choice in their browser
+            localStorage.setItem('language', lang);
+        }
+
+        // Function to load the preferred language when the page loads
+        function loadPreferredLanguage() {
+            const preferredLang = localStorage.getItem('language') || 'en'; // Default to English
+            setLanguage(preferredLang);
+        }
+
+        // Load the language when the page is ready
+        document.addEventListener('DOMContentLoaded', loadPreferredLanguage);
+
+    </script>
+
+</body>
+</html>

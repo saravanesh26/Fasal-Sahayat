@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmer's World | AI Land & Soil Analysis</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="./index.html" class="logo" data-i18n="logo">Fasal Sahayak</a>
+      <nav class="main-nav">
+        <a href="#" class="nav-item" data-i18n="nav_home">Fasal Sahayak</a>
+        <a href="./index.html" class="nav-item" data-i18n="nav_about"
+          >About Us</a
+        >
+        <a href="#" class="nav-item" data-i18n="nav_models">ML-Models</a>
+        <a href="#" class="nav-item" data-i18n="nav_team">Team</a>
+      </nav>
+      <div class="language-buttons">
+        <button type="button" class="lang-btn" onclick="setLanguage('en')">
+          ENG
+        </button>
+        <button
+          type="button"
+          class="lang-btn inactive"
+          onclick="setLanguage('hi')"
+        >
+          HIN
+        </button>
+      </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 data-i18n="hero_title">Fasal Sahayak</h1>
+          <h2 data-i18n="hero_subtitle">The true Aura Unleashed</h2>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <nav class="tabs-nav" aria-label="Service Pages">
+          <a
+            href="./AiPriceEstimator.html"
+            data-target="price-estimation"
+            data-i18n="tab_price"
+            >AI Price Estimation</a
+          >
+          <a
+            href="./AiLandSoilAnalysis.html"
+            data-target="land-soil-analysis"
+            data-i18n="tab_land"
+            >AI Land & Soil Analysis</a
+          >
+          <a
+            href="./AiCropAnalysis.html"
+            data-target="crop-analysis"
+            data-i18n="tab_crop"
+            >AI Crop Analysis</a
+          >
+          <a
+            href="./IncomeAnalysis.html"
+            data-target="income-analysis"
+            data-i18n="tab_income"
+            >AI Income Analysis</a
+          >
+          <a
+            href="./budgetAnalysis.html"
+            data-target="budget-analysis"
+            data-i18n="tab_budget"
+            >AI Budget Analysis</a
+          >
+          <a
+            href="./LoanAnalysis.html"
+            class="active"
+            data-target="loan-analysis"
+            aria-current="page"
+            data-i18n="tab_loan"
+            >AI Loan Analysis</a
+          >
+        </nav>
+      </section>
+
+      <section
+        id="price-estimation"
+        class="feature-section"
+        style="display: none"
+      >
+        <h2>Price Estimation Content</h2>
+      </section>
+      <section
+        id="land-soil-analysis"
+        class="feature-section"
+        style="display: none"
+      >
+        <h2>Land & Soil Analysis Content</h2>
+      </section>
+      <section id="crop-analysis" class="feature-section" style="display: none">
+        <h2>Crop Analysis Content</h2>
+      </section>
+      <section
+        id="income-analysis"
+        class="feature-section"
+        style="display: none"
+      >
+        <h2>Income Analysis Content</h2>
+      </section>
+      <section
+        id="budget-analysis"
+        class="feature-section"
+        style="display: none"
+      >
+        <h2>Budget Analysis Content</h2>
+      </section>
+
+      <section id="loan-analysis" class="feature-section">
+        <div class="feature-container">
+          <div class="feature-text">
+            <h2 data-i18n="loan_title">
+              Secure Your Funding with AI-Powered Loan Analysis
+            </h2>
+            <p data-i18n="loan_desc">
+              Our AI evaluates your farm's data to predict financial health and
+              generate a comprehensive risk profile, helping you secure loans
+              with confidence by presenting clear, data-backed reports to
+              financial institutions.
+            </p>
+            <a href="#" class="cta-button" data-i18n="loan_button"
+              >Analyze My Options</a
+            >
+          </div>
+          <div class="feature-image">
+            <img
+              src="../assets/images/loan.svg"
+              alt="A conceptual image of AI data analysis for agriculture loans."
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Mobile Menu Logic ---
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        const siteHeader = document.querySelector(".site-header");
+        if (menuToggle && siteHeader) {
+          menuToggle.addEventListener("click", () => {
+            siteHeader.classList.toggle("nav-open");
+          });
+        }
+
+        // --- Language Toggle Logic ---
+        const translations = {
+          en: {
+            logo: "Fasal Sahayak",
+            nav_home: "Fasal Sahayak",
+            nav_about: "About Us",
+            nav_models: "ML-Models",
+            nav_team: "Team",
+            hero_title: "Fasal Sahayak",
+            hero_subtitle: "The true Aura Unleashed",
+            tab_price: "AI Price Estimation",
+            tab_land: "AI Land & Soil Analysis",
+            tab_crop: "AI Crop Analysis",
+            tab_income: "AI Income Analysis",
+            tab_budget: "AI Budget Analysis",
+            tab_loan: "AI Loan Analysis",
+            loan_title: "Secure Your Funding with AI-Powered Loan Analysis",
+            loan_desc:
+              "Our AI evaluates your farm's data to predict financial health and generate a comprehensive risk profile, helping you secure loans with confidence by presenting clear, data-backed reports to financial institutions.",
+            loan_button: "Analyze My Options",
+          },
+          hi: {
+            logo: "फसल सहायक",
+            nav_home: "फसल सहायक",
+            nav_about: "हमारे बारे में",
+            nav_models: "एमएल-मॉडल",
+            nav_team: "हमारी टीम",
+            hero_title: "फसल सहायक",
+            hero_subtitle: "सच्ची आभा उजागर",
+            tab_price: "एआई मूल्य अनुमान",
+            tab_land: "एआई भूमि और मिट्टी विश्लेषण",
+            tab_crop: "एआई फसल विश्लेषण",
+            tab_income: "एआई आय विश्लेषण",
+            tab_budget: "एआई बजट विश्लेषण",
+            tab_loan: "एआई ऋण विश्लेषण",
+            loan_title:
+              "एआई-संचालित ऋण विश्लेषण के साथ अपनी फंडिंग सुरक्षित करें",
+            loan_desc:
+              "हमारा एआई आपके खेत के डेटा का मूल्यांकन करके वित्तीय स्वास्थ्य की भविष्यवाणी करता है और एक व्यापक जोखिम प्रोफाइल तैयार करता है, जो आपको वित्तीय संस्थानों को स्पष्ट, डेटा-समर्थित रिपोर्ट प्रस्तुत करके आत्मविश्वास के साथ ऋण सुरक्षित करने में मदद करता है।",
+            loan_button: "मेरे विकल्प विश्लेषित करें",
+          },
+        };
+
+        window.setLanguage = (lang) => {
+          localStorage.setItem("language", lang);
+          const elements = document.querySelectorAll("[data-i18n]");
+          elements.forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (translations[lang] && translations[lang][key]) {
+              el.textContent = translations[lang][key];
+            }
+          });
+          const langButtons = document.querySelectorAll(".lang-btn");
+          langButtons.forEach((btn) => {
+            const btnLang =
+              btn.textContent.toLowerCase() === "hin" ? "hi" : "en";
+            btn.classList.toggle("inactive", btnLang !== lang);
+          });
+        };
+
+        const savedLang = localStorage.getItem("language") || "en";
+        setLanguage(savedLang);
+      });
+    </script>
+  </body>
+</html>
